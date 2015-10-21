@@ -532,7 +532,11 @@ exports.commands = {
 		clearTimeout(timer.repeat[room]);
 		Bot.say(by, room, 'The timer was stopped. Time remaining: ' + Tools.getTimeAgo(2 * Date.parse(new Date()) - timer.end[room]));
 		delete timer.on[room];
-	}
+	},
+	atomic: function(arg, by, room) {
+		if (!Bot.canUse('addquote', room, by)) return false;
+		if (!arg) return false;
+		Bot.say(by, room, 'You can see the rules of atomic chess + <a href=\"https://en.wikipedia.org/wiki/Atomic_chess\">Here</a><br />')
 };
 
 /****************************
