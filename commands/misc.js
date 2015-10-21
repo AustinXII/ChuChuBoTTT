@@ -534,9 +534,8 @@ exports.commands = {
 		delete timer.on[room];
 	},
 	atomic: function(arg, by, room) {
-		if (!Bot.canUse('addquote', room, by)) return false;
-		if (!arg) return false;
-		Bot.say(by, room, 'You can see the rules of atomic chess + <a href=\"https://en.wikipedia.org/wiki/Atomic_chess\">Here</a><br />')
+		Bot.say(by, room, 'You can see the rules of atomic chess + <a href=\"https://en.wikipedia.org/wiki/Atomic_chess\">Here</a><br />');
+	}
 };
 
 /****************************
