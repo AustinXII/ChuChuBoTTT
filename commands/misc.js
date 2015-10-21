@@ -534,7 +534,25 @@ exports.commands = {
 		delete timer.on[room];
 	},
 	atomic: function(arg, by, room) {
+		if (!Bot.canUse('joke', room, by) || room.charAt(0) === ',') return false;
 		Bot.say(by, room, 'You can see the rules of atomic chess here: https://en.wikipedia.org/wiki/Atomic_chess');
+	},
+	chess960: function(arg, by, room) {
+		if (!Bot.canUse('joke', room, by) || room.charAt(0) === ',') return false;
+		Bot.say(by, room, 'You can see the rules of chess960 chess here: https://en.m.wikipedia.org/wiki/Chess960');
+	},
+	antichess: function(arg, by, room) {
+		if (!Bot.canUse('joke', room, by) || room.charAt(0) === ',') return false;
+		Bot.say(by, room, 'You can see the rules of antichess here: http://en.m.wikipedia.org/wiki/Losing_chess');
+	},
+	3check: 'threecheck',
+	threecheck: function(arg, by, room) {
+		if (!Bot.canUse('joke', room, by) || room.charAt(0) === ',') return false;
+		Bot.say(by, room, 'You can see the rules of threecheck chess here: http://en.m.wikipedia.org/wiki/Three-check_chess');
+	},
+	kingofthehill: function(arg, by, room) {
+		if (!Bot.canUse('joke', room, by) || room.charAt(0) === ',') return false;
+		Bot.say(by, room, 'You can see the rules of king of the hill chess here: http://lichess.org/king-of-the-hill');
 	}
 };
 
