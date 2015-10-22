@@ -20,7 +20,7 @@ global.Plugins = require('./plugins.js').Plugins
 //bot economy
 global.Economy = require('./economy.js').Economy
 
-global.devList = [toId(config.nick), 'sparkychild'];
+global.devList = [toId(config.nick), 'austin'];
 
 global.pokemonData = require('./battle/pokemonData.js').BattleFormatsData;
 
