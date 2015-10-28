@@ -204,6 +204,32 @@ exports.commands = {
         });
         req.end();
     },
+      current: function(args, by, room) {
+          var url = "http://splatoon.ink/schedule.json";
+          var SplatSchedule = "";
+      var SplatSchMsg = "";
+ 
+ 
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+ 
+        if (!error && response.statusCode === 200) {
+            console.log(body); //Print the json response
+            var SplatSchedule = JSON.parse(body)
+ 
+          var SplatRegularMap1 = SplatSchedule["schedule"][0]["regular"]["maps"][0]["nameEN"];
+          var SplatRegularMap2 = SplatSchedule["schedule"][0]["regular"]["maps"][1]["nameEN"];
+          var SplatRankedMode = SplatSchedule["schedule"][0]["ranked"]["rulesEN"];
+          var SplatRankedMap1 = SplatSchedule["schedule"][0]["ranked"]["maps"][0]["nameEN"];
+          var SplatRankedMap2 = SplatSchedule["schedule"][0]["ranked"]["maps"][1]["nameEN"];
+          console.log("Turf War on %s and %s.  %s on %s %s.",SplatRegularMap1,SplatRegularMap2,SplatRankedMode,SplatRankedMap1,SplatRankedMap2)
+      var SplatSchMsg = "Turf War on " + SplatRegularMap1 + " and " + SplatRegularMap2 + "."
+          }
+    })
+        return SplatSchMsg
+  },
     choose: function(arg, by, room) {
         if (arg.indexOf(',') === -1) {
             var choices = arg.split(' ');
